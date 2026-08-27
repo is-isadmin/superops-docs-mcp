@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  superops-docs-mcp:
+    build: .
+    ports:
+      - "8082:8082"
+    environment:
+      - SUPEROPS_API_TOKEN=${SUPEROPS_API_TOKEN}
+      - SUPEROPS_SUBDOMAIN=infinitysolutions
+      - SUPEROPS_REGION=us
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/mcp"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # If you also want the WYRE-AI SuperOps MCP server (tickets/assets) in HTTP mode:
+  superops-mcp:
+    image: node:20-slim
+    working_dir: /app
+    ports:
+      - "8083:8083"
+    environment:
+      - SUPEROPS_API_TOKEN=${SUPEROPS_API_TOKEN}
+      - SUPEROPS_SUBDOMAIN=infinitysolutions
+      - SUPEROPS_REGION=us
+    command: >
+      bash -c "
+        npm install -g @wyre-ai/superops-mcp mcp-proxy &&
+        mcp-proxy --port 8083 -- npx @wyre-ai/superops-mcp
+      "
+    restart: unless-stopped

@@ -1,0 +1,17 @@
+[Unit]
+Description=SuperOps IT Documentation MCP Server (HTTP for Onyx)
+After=network.target
+
+[Service]
+Type=simple
+User=onyx
+WorkingDirectory=/opt/superops-docs-mcp
+Environment=SUPEROPS_API_TOKEN=your-api-token-here
+Environment=SUPEROPS_SUBDOMAIN=infinitysolutions
+Environment=SUPEROPS_REGION=us
+ExecStart=/usr/bin/npx mcp-proxy --port 8082 -- node dist/index.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
