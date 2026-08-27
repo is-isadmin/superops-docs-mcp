@@ -38,7 +38,7 @@ Set these environment variables (or put them in a `.env` file):
 
 ```bash
 export SUPEROPS_API_TOKEN="your-api-token-here"
-export SUPEROPS_SUBDOMAIN="infinitysolutions"    # your SuperOps subdomain
+export SUPEROPS_SUBDOMAIN="superopssubdomainhere"    # your SuperOps subdomain
 export SUPEROPS_REGION="us"                      # "us" or "eu"
 ```
 
@@ -64,7 +64,7 @@ In your Onyx MCP settings, add this server alongside the WYRE-AI one:
       "args": ["/path/to/superops-docs-mcp/dist/index.js"],
       "env": {
         "SUPEROPS_API_TOKEN": "your-api-token-here",
-        "SUPEROPS_SUBDOMAIN": "infinitysolutions",
+        "SUPEROPS_SUBDOMAIN": "subdomain",
         "SUPEROPS_REGION": "us"
       }
     },
@@ -73,7 +73,7 @@ In your Onyx MCP settings, add this server alongside the WYRE-AI one:
       "args": ["@wyre-ai/superops-mcp"],
       "env": {
         "SUPEROPS_API_TOKEN": "your-api-token-here",
-        "SUPEROPS_SUBDOMAIN": "infinitysolutions",
+        "SUPEROPS_SUBDOMAIN": "subdomain",
         "SUPEROPS_REGION": "us"
       }
     }
@@ -83,11 +83,11 @@ In your Onyx MCP settings, add this server alongside the WYRE-AI one:
 
 ## Usage Examples (in Onyx or any MCP client)
 
-- "List all docs for RC Lurie"
+- "List all docs for CUSTOMER NAME"
 - "Get the WireGuard VPN documentation"
 - "Search for backup docs"
-- "Update the RC Lurie Tucson doc — add note: new firewall installed 2026-08-26"
-- "Find docs about printers for ESD"
+- "Update the CUSTOMER doc — add note: new firewall installed 2026-08-26"
+- "Find docs about printers for CLIENT A"
 
 ## How It Works
 
